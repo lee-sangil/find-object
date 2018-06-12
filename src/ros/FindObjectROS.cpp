@@ -147,26 +147,26 @@ void FindObjectROS::publish(const find_object::DetectionInfo & info)
 	{
 		std_msgs::Float32MultiArray msg;
 		find_object_2d::ObjectsStamped msgStamped;
-		msg.data = std::vector<float>(info.objDetected_.size()*12);
-		msgStamped.objects.data = std::vector<float>(info.objDetected_.size()*12);
+		msg.data = std::vector<float>(info.objDetected_.size()*2);
+		msgStamped.objects.data = std::vector<float>(info.objDetected_.size()*2);
 		int i=0;
 		QMultiMap<int, QSize>::const_iterator iterSizes=info.objDetectedSizes_.constBegin();
 		for(QMultiMap<int, QTransform>::const_iterator iter=info.objDetected_.constBegin();
 			iter!=info.objDetected_.constEnd();
 			++iter, ++iterSizes)
 		{
-			msg.data[i] = msgStamped.objects.data[i] = iter.key(); ++i;
-			msg.data[i] = msgStamped.objects.data[i] = iterSizes->width(); ++i;
-			msg.data[i] = msgStamped.objects.data[i] = iterSizes->height(); ++i;
-			msg.data[i] = msgStamped.objects.data[i] = iter->m11(); ++i;
-			msg.data[i] = msgStamped.objects.data[i] = iter->m12(); ++i;
-			msg.data[i] = msgStamped.objects.data[i] = iter->m13(); ++i;
-			msg.data[i] = msgStamped.objects.data[i] = iter->m21(); ++i;
-			msg.data[i] = msgStamped.objects.data[i] = iter->m22(); ++i;
-			msg.data[i] = msgStamped.objects.data[i] = iter->m23(); ++i;
+//			msg.data[i] = msgStamped.objects.data[i] = iter.key(); ++i;
+//			msg.data[i] = msgStamped.objects.data[i] = iterSizes->width(); ++i;
+//			msg.data[i] = msgStamped.objects.data[i] = iterSizes->height(); ++i;
+//			msg.data[i] = msgStamped.objects.data[i] = iter->m11(); ++i;
+//			msg.data[i] = msgStamped.objects.data[i] = iter->m12(); ++i;
+//			msg.data[i] = msgStamped.objects.data[i] = iter->m13(); ++i;
+//			msg.data[i] = msgStamped.objects.data[i] = iter->m21(); ++i;
+//			msg.data[i] = msgStamped.objects.data[i] = iter->m22(); ++i;
+//			msg.data[i] = msgStamped.objects.data[i] = iter->m23(); ++i;
 			msg.data[i] = msgStamped.objects.data[i] = iter->m31(); ++i;// dx
 			msg.data[i] = msgStamped.objects.data[i] = iter->m32(); ++i;// dy
-			msg.data[i] = msgStamped.objects.data[i] = iter->m33(); ++i;
+//			msg.data[i] = msgStamped.objects.data[i] = iter->m33(); ++i;
 		}
 		if(pub_.getNumSubscribers())
 		{

@@ -1513,20 +1513,20 @@ void MainWindow::update(const cv::Mat & image)
 		// Emit homographies
 		if(info.objDetected_.size() > 1)
 		{
-			UINFO("(%s) %d objects detected!",
-					QTime::currentTime().toString("HH:mm:ss.zzz").toStdString().c_str(),
-					(int)info.objDetected_.size());
+//			UINFO("(%s) %d objects detected!",
+//					QTime::currentTime().toString("HH:mm:ss.zzz").toStdString().c_str(),
+//					(int)info.objDetected_.size());
 		}
 		else if(info.objDetected_.size() == 1)
 		{
-			UINFO("(%s) Object %d detected!",
-					QTime::currentTime().toString("HH:mm:ss.zzz").toStdString().c_str(),
-					(int)info.objDetected_.begin().key());
+//			UINFO("(%s) Object %d detected!",
+//					QTime::currentTime().toString("HH:mm:ss.zzz").toStdString().c_str(),
+//					(int)info.objDetected_.begin().key());
 		}
 		else if(Settings::getGeneral_sendNoObjDetectedEvents())
 		{
-			UINFO("(%s) No objects detected.",
-					QTime::currentTime().toString("HH:mm:ss.zzz").toStdString().c_str());
+//			UINFO("(%s) No objects detected.",
+//					QTime::currentTime().toString("HH:mm:ss.zzz").toStdString().c_str());
 		}
 
 		if(info.objDetected_.size() > 0 || Settings::getGeneral_sendNoObjDetectedEvents())

@@ -683,7 +683,7 @@ protected:
 	{
 		QTime time;
 		time.start();
-		UINFO("Extracting descriptors from object %d...", objectId_);
+//		UINFO("Extracting descriptors from object %d...", objectId_);
 
 		QTime timeStep;
 		timeStep.start();
@@ -778,7 +778,7 @@ protected:
 			}
 		}
 
-		UINFO("%d descriptors extracted from object %d (in %d ms)", descriptors_.rows, objectId_, time.elapsed());
+//		UINFO("%d descriptors extracted from object %d (in %d ms)", descriptors_.rows, objectId_, time.elapsed());
 	}
 private:
 	Feature2D * detector_;
@@ -870,12 +870,12 @@ void FindObject::updateObjects(const QList<int> & ids)
 					}
 				}
 			}
-			UINFO("Features extraction from %d objects... done! (%d ms)", objectsList.size(), time.elapsed());
+//			UINFO("Features extraction from %d objects... done! (%d ms)", objectsList.size(), time.elapsed());
 		}
 	}
 	else
 	{
-		UINFO("No objects to update...");
+//		UINFO("No objects to update...");
 	}
 }
 
@@ -1324,23 +1324,23 @@ void FindObject::detect(const cv::Mat & image)
 
 	if(info.objDetected_.size() > 1)
 	{
-		UINFO("(%s) %d objects detected! (%d ms)",
-				QTime::currentTime().toString("HH:mm:ss.zzz").toStdString().c_str(),
-				(int)info.objDetected_.size(),
-				time.elapsed());
+//		UINFO("(%s) %d objects detected! (%d ms)",
+//				QTime::currentTime().toString("HH:mm:ss.zzz").toStdString().c_str(),
+//				(int)info.objDetected_.size(),
+//				time.elapsed());
 	}
 	else if(info.objDetected_.size() == 1)
 	{
-		UINFO("(%s) Object %d detected! (%d ms)",
-				QTime::currentTime().toString("HH:mm:ss.zzz").toStdString().c_str(),
-				(int)info.objDetected_.begin().key(),
-				time.elapsed());
+//		UINFO("(%s) Object %d detected! (%d ms)",
+//				QTime::currentTime().toString("HH:mm:ss.zzz").toStdString().c_str(),
+//				(int)info.objDetected_.begin().key(),
+//				time.elapsed());
 	}
 	else if(Settings::getGeneral_sendNoObjDetectedEvents())
 	{
-		UINFO("(%s) No objects detected. (%d ms)",
-				QTime::currentTime().toString("HH:mm:ss.zzz").toStdString().c_str(),
-				time.elapsed());
+//		UINFO("(%s) No objects detected. (%d ms)",
+//				QTime::currentTime().toString("HH:mm:ss.zzz").toStdString().c_str(),
+//				time.elapsed());
 	}
 
 	if(info.objDetected_.size() > 0 || Settings::getGeneral_sendNoObjDetectedEvents())
